@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management - Login</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body class="login-body">
+
+    <div class="login-container">
+
+        <div class="login-card">
+
+            <h1>Student Management</h1>
+
+            <p class="login-subtitle">
+                Login to your account
+            </p>
+
+
+            <!-- LOGIN FORM -->
+
+            <form method="POST"
+                  action="{{ url_for('login') }}">
+
+
+                <!-- USERNAME -->
+
+                <div class="form-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter username"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+                  <label for="password">Password</label>
+
+                     <div class="password-box">
+
+                    <input type="password"
+                           id="password"
+                           name="password"
+                           placeholder="Enter password"
+                           required>
+
+                        <button type="button"
+                               id="togglePassword"
+                               onclick="showHidePassword()">
+                             👁
+                        </button>
+
+                     </div>
+                </div>
+
+
+                <!-- ERROR MESSAGE -->
+
+                {% if error %}
+
+                    <p style="color: #dc2626; margin-bottom: 15px;">
+                        {{ error }}
+                    </p>
+
+                {% endif %}
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button type="submit"
+                        class="btn btn-primary">
+
+                    Login
+
+                </button>
+
+
+            </form>
+
+
+            <!-- DEMO LOGIN DETAILS -->
+
+            <div class="demo-login">
+
+                <p>Demo Login</p>
+
+                <p>
+                    Username: <strong>deepan</strong>
+                </p>
+
+                <p>
+                    Password: <strong>1234</strong>
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
