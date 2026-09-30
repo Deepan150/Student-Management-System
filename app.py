@@ -55,13 +55,14 @@ def dashboard():
 def students():
     conn = get_db_connection()
     students_data = conn.execute(
-        "SELECT * FROM students ORDER BY id DESC"
+        "SELECT * FROM students WHERE is_deleted = 0 ORDER BY id DESC"
     ).fetchall()
     conn.close()
     return render_template(
         "students.html",
         students=students_data
     )
+
 # Add student
 @app.route("/add-student", methods=["GET", "POST"])
 def add_student():
@@ -112,7 +113,7 @@ def edit_student(id):
 def delete_student(id):
     conn = get_db_connection()
     conn.execute(
-        "DELETE FROM students WHERE id = ?",
+        "UPDATE students SET is_deleted = 1 WHERE id = ?",
         (id,)
     )
     conn.commit()
