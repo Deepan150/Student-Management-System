@@ -2,83 +2,130 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-     <link rel="stylesheet"
+    <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
-
 </head>
-
 <body>
-
     <div class="layout">
+        <!-- SIDEBAR -->
         <aside class="sidebar">
             <h2>Student MS</h2>
             <nav>
-               <a href="{{ url_for('dashboard') }}">Dashboard</a>
-                <a href="{{ url_for('students') }}">Students</a>
-                <a href="{{ url_for('add_student') }}">Add Student</a>
+                <a href="{{ url_for('dashboard') }}">
+                    Dashboard
+                </a>
+                <a href="{{ url_for('students') }}">
+                    Students
+                </a>
+                <a href="{{ url_for('add_student') }}">
+                    Add Student
+                </a>
                 <a href="#" id="logoutBtn">
                     Logout
                 </a>
             </nav>
         </aside>
+        <!-- MAIN CONTENT -->
         <main class="main-content">
+            <!-- TOPBAR -->
             <div class="topbar">
                 <div>
                     <h1>Dashboard</h1>
-                    <p>Welcome to Student Management System</p>
+                    <p>
+                        Welcome to Student Management System
+                    </p>
                 </div>
-                <button class="logout-button" id="logoutBtnTop">
+                <button class="logout-button"
+                        id="logoutBtnTop">
                     Logout
                 </button>
             </div>
+            <!-- DASHBOARD CARDS -->
             <div class="dashboard-cards">
+                <!-- TOTAL STUDENTS -->
                 <div class="dashboard-card">
                     <div class="card-icon">
                         👨‍🎓
                     </div>
                     <div>
-                        <h3 id="studentCount">0</h3>
-                        <p>Total Students</p>
+                        <h3 id="studentCount">
+                            {{ student_count }}
+                        </h3>
+                        <p>
+                            Total Students
+                        </p>
                     </div>
                 </div>
+                <!-- ADD STUDENT -->
                 <div class="dashboard-card">
                     <div class="card-icon">
                         ➕
                     </div>
                     <div>
-                        <h3>Add</h3>
-                        <p>New Student</p>
+                        <h3>
+                            Add
+                        </h3>
+                        <p>
+                            New Student
+                        </p>
                     </div>
                 </div>
+
+                <!-- STUDENT LIST -->
                 <div class="dashboard-card">
                     <div class="card-icon">
                         📋
                     </div>
                     <div>
-                        <h3>List</h3>
-                        <p>Student Records</p>
+                        <h3>
+                            List
+                        </h3>
+                        <p>
+                            Student Records
+                        </p>
                     </div>
                 </div>
             </div>
+            <!-- QUICK ACTIONS -->
             <section class="content-section">
-                <h2>Quick Actions</h2>
+                <h2>
+                    Quick Actions
+                </h2>
                 <div class="quick-actions">
-                    <a href="add_student.html" class="action-card">
-                        <span>➕</span>
-                        <h3>Add Student</h3>
-                        <p>Add a new student record</p>
+                    <!-- ADD STUDENT -->
+                    <a href="{{ url_for('add_student') }}"
+                       class="action-card">
+                        <span>
+                            ➕
+                        </span>
+                        <h3>
+                            Add Student
+                        </h3>
+                        <p>
+                            Add a new student record
+                        </p>
                     </a>
-                    <a href="students.html" class="action-card">
-                        <span>👨‍🎓</span>
-                        <h3>View Students</h3>
-                        <p>View all student records</p>
+                    <!-- VIEW STUDENTS -->
+                    <a href="{{ url_for('students') }}"
+                       class="action-card">
+                        <span>
+                            👨‍🎓
+                        </span>
+                        <h3>
+                            View Students
+                        </h3>
+                        <p>
+                            View all student records
+                        </p>
                     </a>
                 </div>
             </section>
         </main>
     </div>
+    <!-- JAVASCRIPT -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

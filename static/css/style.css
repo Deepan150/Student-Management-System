@@ -461,3 +461,13 @@ tbody tr:hover {
     }
 
 }
+.jquery-message {
+    display: none;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+    border-radius: 6px;
+    font-weight: 500;
+}
